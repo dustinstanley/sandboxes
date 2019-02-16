@@ -18,7 +18,7 @@ public class RdsController {
     }
 
     @PostMapping("/rds/table")
-    public String createTable(@RequestBody WSCreateBucketRequest request) {
-        return rdsService.createTable(request.getName());
+    public void createTable(@RequestBody WSCreateBucketRequest request) {
+        rdsService.createTable(request.getName());
     }
 }

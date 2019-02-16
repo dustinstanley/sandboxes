@@ -26,3 +26,5 @@ nbdist/
 
 SpringWebService.pem
 gradle.properties
+
+src/main/resources/database/database.properties

@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import software.amazon.awssdk.core.regions.Region;
-import software.amazon.awssdk.services.dynamodb.DynamoDBClient;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeDefinition;
 import software.amazon.awssdk.services.dynamodb.model.CreateTableRequest;
 import software.amazon.awssdk.services.dynamodb.model.CreateTableResponse;
@@ -19,11 +19,11 @@ import software.amazon.awssdk.services.dynamodb.model.TableDescription;
 @Service
 public class DynamoDbServiceImplV2 implements DynamoDbService {
 
-    private final DynamoDBClient client;
+    private final DynamoDbClient client;
     private static final Region region = Region.US_WEST_2;
 
     public DynamoDbServiceImplV2() {
-        client = DynamoDBClient.builder().region(region).build();
+        client = DynamoDbClient.builder().region(region).build();
     }
 
     public TableDescription createTable(String tableName) {

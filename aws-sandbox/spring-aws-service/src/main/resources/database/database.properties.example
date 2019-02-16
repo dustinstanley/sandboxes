@@ -1,0 +1,6 @@
+# TODO: copy this contents of this properties file to /src/main/resources/database/database.properties and set the credentials for your database.
+# This should be used only for credentials and other local-only config.
+# DO NOT COMMIT database.properties to source control!
+spring.datasource.url = jdbc:postgresql://localhost/database
+spring.datasource.username =
+spring.datasource.password =

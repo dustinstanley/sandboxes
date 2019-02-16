@@ -1,3 +1,2 @@
 include 'helloworld-lambda'
 include 'spring-aws-service'
-

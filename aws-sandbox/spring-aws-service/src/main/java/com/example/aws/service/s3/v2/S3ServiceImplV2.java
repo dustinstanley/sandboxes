@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import software.amazon.awssdk.core.regions.Region;
+import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.Bucket;
 import software.amazon.awssdk.services.s3.model.CreateBucketConfiguration;
@@ -30,7 +30,7 @@ public class S3ServiceImplV2 implements S3Service {
                 .builder()
                 .bucket(bucketName)
                 .createBucketConfiguration(CreateBucketConfiguration.builder()
-                        .locationConstraint(region.value())
+                        .locationConstraint(region.toString())
                         .build())
                 .build();
         CreateBucketResponse response = client.createBucket(createBucketRequest);

@@ -20,7 +20,7 @@ class WSDynamoTable {
     
     public WSDynamoTable(TableDescription tableDescription) {
         this.name = tableDescription.tableName();
-        this.status = tableDescription.tableStatusString();
+        this.status = tableDescription.tableStatusAsString();
         this.arn = tableDescription.tableArn();
     }
 }

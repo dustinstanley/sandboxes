@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-class WSCreateBucketRequest {
+public class WSCreateBucketRequest {
 
     private String name;
 }
