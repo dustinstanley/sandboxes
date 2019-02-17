@@ -1,4 +1,6 @@
 import React from 'react';
+import ImageCard from './ImageCard';
+import './ImageList.css';
 
 interface Image {
   description: string,
@@ -12,10 +14,10 @@ interface ImageListProps {
 }
 
 const ImageList = (props: ImageListProps) => {
-  const images = props.images.map(({description, id, urls}) => {
-    return <img key={id} alt={description} src={urls.regular}/>
+  const images = props.images.map((image) => {
+    return <ImageCard key={image.id} image={image} />
   });
-  return <div>{images}</div>
+  return <div className={"image-list"}>{images}</div>
 };
 
 export default ImageList;
