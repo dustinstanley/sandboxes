@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApplication2
+namespace ConsoleApp1
 {
     class Program
     {
@@ -31,8 +29,10 @@ namespace ConsoleApplication2
                     result = arrayToTest[i];
                 }
             }
+
             sw.Stop();
-            System.Console.WriteLine("Array performance: " + sw.Elapsed.TotalMilliseconds +" ms.  Final result: " + result);
+            System.Console.WriteLine("Array performance: " + sw.Elapsed.TotalMilliseconds + " ms.  Final result: " +
+                                     result);
 
             sw.Reset();
             sw.Start();
@@ -44,13 +44,16 @@ namespace ConsoleApplication2
                     result = arrayToTest[i];
                 }
             }
+
             sw.Stop();
-            System.Console.WriteLine("Array performance 2nd run: " + sw.Elapsed.TotalMilliseconds + " ms.  Final result: " + result);
+            System.Console.WriteLine("Array performance 2nd run: " + sw.Elapsed.TotalMilliseconds +
+                                     " ms.  Final result: " + result);
 
             sw.Restart();
             result = arrayToTest.Max();
             sw.Stop();
-            System.Console.WriteLine("Array.Max() performance: " + sw.Elapsed.TotalMilliseconds + " ms.  Final result: " + result);
+            System.Console.WriteLine("Array.Max() performance: " + sw.Elapsed.TotalMilliseconds +
+                                     " ms.  Final result: " + result);
 
             sw.Reset();
             List<Double> list = arrayToTest.ToList<Double>();
@@ -63,14 +66,16 @@ namespace ConsoleApplication2
                     result = list[i];
                 }
             }
+
             sw.Stop();
-            System.Console.WriteLine("List performance: " + sw.Elapsed.TotalMilliseconds + " ms.  Final result: " + result);
+            System.Console.WriteLine("List performance: " + sw.Elapsed.TotalMilliseconds + " ms.  Final result: " +
+                                     result);
 
             sw.Restart();
             result = list.Max();
             sw.Stop();
-            System.Console.WriteLine("List.Max() performance: " + sw.Elapsed.TotalMilliseconds + " ms.  Final result: " + result);
-
+            System.Console.WriteLine("List.Max() performance: " + sw.Elapsed.TotalMilliseconds +
+                                     " ms.  Final result: " + result);
 
 
             System.Console.ReadLine();
