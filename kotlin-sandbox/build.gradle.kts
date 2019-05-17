@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -10,7 +11,6 @@ plugins {
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
-//sourceCompatibility = "1.8"
 
 configurations {
     compileOnly {
@@ -77,9 +77,6 @@ dependencies {
     testImplementation("io.mockk:mockk:1.9.3")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-api:5.1.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.1.0")
-    // spek 1
-//    testImplementation("org.jetbrains.spek:spek-api:1.1.5")
-//    testImplementation("org.jetbrains.spek:spek-junit-platform-engine:1.1.5")
     // spek 2
     testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.4")
     testImplementation("org.spekframework.spek2:spek-runner-junit5:2.0.4")
@@ -93,6 +90,15 @@ dependencyManagement {
         mavenBom("de.codecentric:spring-boot-admin-dependencies:$springBootAdminVersion")
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
     }
+}
+
+sourceSets["main"].java.srcDir("src/main/kotlin")
+sourceSets["main"].withConvention(KotlinSourceSet::class) {
+    kotlin.srcDir("src/main/kotlin")
+}
+sourceSets["test"].java.srcDir("src/main/kotlin")
+sourceSets["test"].withConvention(KotlinSourceSet::class) {
+    kotlin.srcDir("src/test/kotlin")
 }
 
 tasks.withType<KotlinCompile> {

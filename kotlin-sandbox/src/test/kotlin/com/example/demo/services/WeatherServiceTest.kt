@@ -12,7 +12,7 @@ import org.spekframework.spek2.style.specification.describe
 
 class WeatherServiceTest : Spek({
     println("this is the root")
-    describe("adding numbers") {
+    describe("shouldHaveTheSameClassAs assertion test") {
         it("two kotlin objects compared") {
             val test1 = WeatherService()
             val test2 = WeatherService()
