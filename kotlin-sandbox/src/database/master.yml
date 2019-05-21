@@ -1,0 +1,45 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: Create Weather Table
+      author: Dustin Stanley
+      changes:
+        - createTable:
+            tableName: weather_condition
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: city
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: recorded_dtm
+                  type: DATETIME
+                  constraints:
+                    nullable: false
+              - column:
+                  name: temperatureF
+                  type: TINYINT
+        - createSequence:
+            cycle: false
+            incrementBy: 1
+            maxValue: 9999999999
+            minValue: 0
+            sequenceName: weather_condition_ids
+            startValue: 0
+
+  - changeSet:
+      id: Change 'temperatureF' column name to 'temperature_f'
+      author: Dustin Stanley
+      changes:
+        - renameColumn:
+            tableName: weather_condition
+            oldColumnName: temperatureF
+            newColumnName: temperature_f

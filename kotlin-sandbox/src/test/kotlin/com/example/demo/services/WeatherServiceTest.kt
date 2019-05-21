@@ -12,18 +12,18 @@ import org.spekframework.spek2.style.specification.describe
 
 class WeatherServiceTest : Spek({
     println("this is the root")
-    describe("shouldHaveTheSameClassAs assertion test") {
-        it("two kotlin objects compared") {
-            val test1 = WeatherService()
-            val test2 = WeatherService()
-            test1 shouldHaveTheSameClassAs test2
-        }
-        it("two java objects compared") {
-            val test1 = WeatherServiceJava()
-            val test2 = WeatherServiceJava()
-            test1 shouldHaveTheSameClassAs test2
-        }
-    }
+//    describe("shouldHaveTheSameClassAs assertion test") {
+//        it("two kotlin objects compared") {
+//            val test1 = WeatherService()
+//            val test2 = WeatherService()
+//            test1 shouldHaveTheSameClassAs test2
+//        }
+//        it("two java objects compared") {
+//            val test1 = WeatherServiceJava()
+//            val test2 = WeatherServiceJava()
+//            test1 shouldHaveTheSameClassAs test2
+//        }
+//    }
     group("some group") {
         println("some group")
         test("some test") {

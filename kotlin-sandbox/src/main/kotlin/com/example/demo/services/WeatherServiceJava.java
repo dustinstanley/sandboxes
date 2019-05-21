@@ -1,17 +1,27 @@
 package com.example.demo.services;
 
-import com.example.demo.controllers.Greeting;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.example.demo.repositories.WeatherCondition;
+import com.example.demo.repositories.WeatherConditionRepository;
+
+/**
+ * The only purpose of this class is to test Kotlin->Java interop and vice-versa
+ */
+@Component
 public class WeatherServiceJava {
 
-    private int test;
-    private Greeting greeting;
+    private WeatherConditionRepository weatherConditionRepo;
 
-    public WeatherServiceJava() {
-
+    @Autowired
+    public WeatherServiceJava(WeatherConditionRepository weatherConditionRepo) {
+        this.weatherConditionRepo = weatherConditionRepo;
     }
 
-    public WeatherServiceJava(Greeting greeting) {
-        this.greeting = greeting;
+    public List<WeatherCondition> getAllWeatherConditions() {
+        return weatherConditionRepo.findAll();
     }
 }
