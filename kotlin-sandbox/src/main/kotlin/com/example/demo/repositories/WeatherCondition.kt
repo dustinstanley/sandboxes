@@ -7,15 +7,15 @@ import javax.persistence.Id
 
 @Entity
 data class WeatherCondition(
-        @Id
-        val id: Long,
+    @Id
+    val id: Long,
 
-        @Column
-        val city: String,
+    @Column
+    val city: String,
 
-        @Column
-        val recordedDtm: Instant,
+    @Column
+    val recordedDtm: Instant,
 
-        @Column(name = "temperature_f")
-        val temperatureF: Int
+    @Column(name = "temperature_f")
+    val temperatureF: Int
 )
