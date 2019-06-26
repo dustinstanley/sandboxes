@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	cards := newDeck()
-	fmt.Println(cards.toString())
+	deck := newDeckFromFile("my_cards")
+	fmt.Print("Deck: ", deck.toString())
 }
 
 func newCard() string {
