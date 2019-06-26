@@ -1,6 +1,9 @@
 use std::f64::consts;
+mod foo;
 
 fn main() {
+    let f = foo::Foo::new("hello");
+
     let ints = [1, 2, 3];
     let floats = [1.1, 2.1, 3.1];
     let strings = ["hello", "world"];

@@ -1,8 +1,9 @@
 [package]
-name = "rust-sandbox"
+name = "guessing_game"
 version = "0.1.0"
 authors = ["Dustin Stanley <dustin.stanley@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-chrono = "0.4.6"
+
+rand = "0.3.14"
