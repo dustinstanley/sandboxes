@@ -1,0 +1,21 @@
+branch-defaults:
+  master:
+    environment: DockerReactUdemy-env
+environment-defaults:
+  DockerReactUdemy-env:
+    branch: null
+    repository: null
+global:
+  application_name: docker-react-udemy
+  default_ec2_keyname: null
+  default_platform: arn:aws:elasticbeanstalk:us-west-2::platform/Docker running on
+    64bit Amazon Linux/2.13.0
+  default_region: us-west-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  sc: git
+  workspace_type: Application
+#deploy:
+#  artifact: path/to/buildartifact.zip

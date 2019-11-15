@@ -1,0 +1,19 @@
+version: '3'
+services:
+  react-app:
+    build:    # instead of default, tell compose to use the Dockerfile.dev file in the current working directory
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules # do not try to map the hosts node_modules folder to the container's node_modules folder...let the container populate this itself via npm
+      - .:/app/           # map the host current working directory to /app inside the container
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]
