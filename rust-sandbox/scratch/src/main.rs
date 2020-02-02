@@ -12,4 +12,7 @@ fn main() {
     println!("floats {:?}", floats);
     println!("strings {:?}", strings);
     println!("ints_ints {:?}", ints_ints);
+
+    let tup = (500, 6.4, 1);
+    let x = tup.0;
 }

@@ -14,7 +14,12 @@
       <sourceFolder url="file://$MODULE_DIR$/guessing_game/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/guessing_game/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/guessing_game/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/ownership/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ownership/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ownership/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/ownership/benches" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/guessing_game/target" />
+      <excludeFolder url="file://$MODULE_DIR$/ownership/target" />
       <excludeFolder url="file://$MODULE_DIR$/scratch/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
