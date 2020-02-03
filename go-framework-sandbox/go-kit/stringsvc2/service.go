@@ -1,18 +1,17 @@
 package main
 
-// YOUR BUSINESS LOGIC
-// StringService interface provides operations on strings.
 import (
 	"errors"
 	"strings"
 )
 
+// StringService provides operations on strings.
 type StringService interface {
 	Uppercase(string) (string, error)
 	Count(string) int
 }
 
-// Implementation of StringService
+// stringService is a concrete implementation of StringService
 type stringService struct{}
 
 func (stringService) Uppercase(s string) (string, error) {
@@ -26,6 +25,5 @@ func (stringService) Count(s string) int {
 	return len(s)
 }
 
-// ErrEmpty is returned when input string is empty
-var ErrEmpty = errors.New("Empty string")
-
+// ErrEmpty is returned when an input string is empty.
+var ErrEmpty = errors.New("empty string")
