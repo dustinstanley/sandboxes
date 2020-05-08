@@ -1,4 +1,4 @@
-module main
+module stringsvc3
 
 go 1.13
 
