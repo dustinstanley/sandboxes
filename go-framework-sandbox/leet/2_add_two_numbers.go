@@ -1,20 +1,20 @@
-package add_two_numbers
+package main
 
 import (
 	"fmt"
-	"math"
 	"strings"
 )
 
 func main() {
-	listNode := create_listNode(12345)
-	print(listNode)
+	listNode := createListNodeFromIntArray([]int{1, 2, 3, 4, 5})
+	print(listNode.String())
 }
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
+
 func (l ListNode) String() string {
 	var sb strings.Builder
 	sb.WriteString(fmt.Sprintf("%d", l.Val))
@@ -26,32 +26,58 @@ func (l ListNode) String() string {
 	return sb.String()
 }
 
-func add_two_numbers(l1 *ListNode, l2 *ListNode) *ListNode {
+func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	i := l1
 	j := l2
-	magnitude := 0
-	sum := 0
+	carry := 0
 
-	for i != nil && j != nil {
-		sum += (i.Val + j.Val) * int(math.Pow(10, float64(magnitude)))
-		magnitude++
-		i = i.Next
-		j = j.Next
+	head := &ListNode{
+		Val:  0,
+		Next: nil,
+	}
+	sum := head
+
+	for i != nil || j != nil {
+		sum.Val += carry
+		if i != nil {
+			sum.Val += i.Val
+			i = i.Next
+		}
+		if j != nil {
+			sum.Val += j.Val
+			j = j.Next
+		}
+		carry = sum.Val / 10
+		sum.Val = sum.Val % 10
+
+		if i != nil || j != nil {
+			sum.Next = &ListNode{
+				Val:  0,
+				Next: nil,
+			}
+			sum = sum.Next
+		} else if carry > 0 {
+			sum.Next = &ListNode{
+				Val:  carry,
+				Next: nil,
+			}
+			sum = sum.Next
+		}
 	}
 
-	return create_listNode(sum)
+	return head
 }
 
-func create_listNode(sum int) *ListNode {
+func createListNodeFromIntArray(source []int) *ListNode {
 	head := &ListNode{
 		Val:  0,
 		Next: nil,
 	}
 	cursor := head
-	for sum > 0 {
-		cursor.Val = sum % 10
-		sum /= 10
-		if sum > 0 {
+
+	for i := 0; i < len(source); i++ {
+		cursor.Val = source[i]
+		if i != len(source) - 1 {
 			cursor.Next = &ListNode{
 				Val:  0,
 				Next: nil,
@@ -61,3 +87,23 @@ func create_listNode(sum int) *ListNode {
 	}
 	return head
 }
+
+//func createListNodeFromInt(intVal int64) *ListNode {
+//	head := &ListNode{
+//		Val:  0,
+//		Next: nil,
+//	}
+//	cursor := head
+//	for intVal > 0 {
+//		cursor.Val = intVal % 10
+//		intVal /= 10
+//		if intVal > 0 {
+//			cursor.Next = &ListNode{
+//				Val:  0,
+//				Next: nil,
+//			}
+//			cursor = cursor.Next
+//		}
+//	}
+//	return head
+//}

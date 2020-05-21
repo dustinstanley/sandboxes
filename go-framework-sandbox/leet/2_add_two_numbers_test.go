@@ -1,4 +1,4 @@
-package add_two_numbers
+package main
 
 import (
 	"reflect"
@@ -15,19 +15,74 @@ func Test_add_two_numbers(t *testing.T) {
 		args args
 		want *ListNode
 	}{
-		// TODO: Add test cases.
 		{
 			name: "simple case",
 			args: args{
-				l1: create_listNode(12345),
-				l2: create_listNode(12345),
+				l1: createListNodeFromIntArray([]int{5, 4, 3, 2, 1}),
+				l2: createListNodeFromIntArray([]int{5, 4, 3, 2, 1}),
 			},
-			want: create_listNode(24690),
+			want: createListNodeFromIntArray([]int{0, 9, 6, 4, 2}),
+		},
+		{
+			name: "simple case",
+			args: args{
+				l1: createListNodeFromIntArray([]int{5, 4, 3, 2, 1}),
+				l2: createListNodeFromIntArray([]int{5, 4, 3}),
+			},
+			want: createListNodeFromIntArray([]int{0, 9, 6, 2, 1}),
+		},
+		{
+			name: "single zero case",
+			args: args{
+				l1: createListNodeFromIntArray([]int{4, 5}),
+				l2: createListNodeFromIntArray([]int{0}),
+			},
+			want: createListNodeFromIntArray([]int{4, 5}),
+		},
+		{
+			name: "double zero case",
+			args: args{
+				l1: createListNodeFromIntArray([]int{0}),
+				l2: createListNodeFromIntArray([]int{0}),
+			},
+			want: createListNodeFromIntArray([]int{0}),
+		},
+		{
+			name: "single empty case",
+			args: args{
+				l1: createListNodeFromIntArray([]int{}),
+				l2: createListNodeFromIntArray([]int{0}),
+			},
+			want: createListNodeFromIntArray([]int{0}),
+		},
+		{
+			name: "double empty case",
+			args: args{
+				l1: createListNodeFromIntArray([]int{}),
+				l2: createListNodeFromIntArray([]int{}),
+			},
+			want: createListNodeFromIntArray([]int{0}),
+		},
+		{
+			name: "extra long value case",
+			args: args{
+				l1: createListNodeFromIntArray([]int{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1}),
+				l2: createListNodeFromIntArray([]int{5,6,4}),
+			},
+			want: createListNodeFromIntArray([]int{6,6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1}),
+		},
+		{
+			name: "carry case",
+			args: args{
+				l1: createListNodeFromIntArray([]int{5}),
+				l2: createListNodeFromIntArray([]int{5}),
+			},
+			want: createListNodeFromIntArray([]int{0, 1}),
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := add_two_numbers(tt.args.l1, tt.args.l2); !reflect.DeepEqual(got, tt.want) {
+			if got := addTwoNumbers(tt.args.l1, tt.args.l2); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("add_two_numbers() = %v, want %v", got, tt.want)
 			}
 		})
