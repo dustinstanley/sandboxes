@@ -4,17 +4,29 @@ func lengthOfLongestSubstring(s string) int {
 	maxLength := 0
 	letters := make(map[rune]int)
 
-	for pos, curLetter := range s {
+	for _, curLetter := range s {
 		if letters[curLetter] != 0 {
-			// TODO: calculate length of current substring by looking up position of last occurrence of this character
-			// TODO: and comparing against current position
-			maxLength = max(len(letters), maxLength)
-			letters = make(map[rune]int)
+			maxLength = max(letters[curLetter], maxLength)
+			letters[curLetter] = 0
+		} else {
+			letters[curLetter] = 0
 		}
-		letters[curLetter] = pos
+		for letter, _ := range letters {
+			letters[letter]++
+		}
 	}
 
-	maxLength = max(len(letters), maxLength)
+	return max(maxLength, findMax(letters))
+}
+
+func findMax(letters map[rune]int) int {
+	maxLength := 0
+
+	for _, count := range letters {
+		if count > maxLength {
+			maxLength = count
+		}
+	}
 
 	return maxLength
 }

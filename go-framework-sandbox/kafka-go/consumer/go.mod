@@ -1,5 +1,5 @@
-module kafka_go
+module consumer
 
-go 1.13
+go 1.14
 
 require github.com/segmentio/kafka-go v0.3.6

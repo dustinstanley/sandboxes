@@ -11,11 +11,11 @@ func Test_lengthOfLongestSubstring(t *testing.T) {
 		args args
 		want int
 	}{
-		//{
-		//	name: "abcabcbb",
-		//	args: args{"abcabcbb"},
-		//	want: 3,
-		//},
+		{
+			name: "abcabcbb",
+			args: args{"abcabcbb"},
+			want: 3,
+		},
 		//{
 		//	name: "bbbbb",
 		//	args: args{"bbbbb"},
@@ -31,11 +31,11 @@ func Test_lengthOfLongestSubstring(t *testing.T) {
 		//	args: args{"aab"},
 		//	want: 2,
 		//},
-		{
-			name: "dvdf",
-			args: args{"dvdf"},
-			want: 3,
-		},
+		//{
+		//	name: "dvdf",
+		//	args: args{"dvdf"},
+		//	want: 3,
+		//},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
